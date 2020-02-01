@@ -2,11 +2,14 @@ bashrc_user="dougs"
 
 alias luai="lua51 -i ~/bin/init_env.lua"
 alias rgrep="grep -nriI"
-alias grepg="grep -nria --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc"
+alias grepg="egrep -nria --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude-dir=venv"
+alias grepgc="egrep -nra --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude-dir=venv"
 alias git_hist="git log --decorate"
+alias git_unstage="git reset --"
 alias cdiff="diff --old-group-format=$'%df-%dl Removed:\n\e[0;31m%<\e[0m' --new-group-format=$'%df-%dl Added:\n\e[0;32m%>\e[0m' --unchanged-group-format= -ts"
 alias lst="ls -alh --time-style=long-iso"
 alias gen_reqs='pip3 freeze | egrep -iv "backcall|jedi|ipython|decorator|traitlets|prompt-toolkit|pygments|pickleshare|colorama|parso" | sed "s/==/>=/" | dos2unix'
+alias traceroute=tracert
 
 which () {
     (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
@@ -44,6 +47,7 @@ shopt -s cmdhist
 shopt -s no_empty_cmd_completion
 
 export PATH=$PATH:~/bin
+export PYTHONIOENCODING=utf-8
 
 #Set this last, as afterwards, everything else goes into history - it should be the LAST entry in .bashrc
 set -o history
