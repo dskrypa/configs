@@ -10,6 +10,7 @@ alias cdiff="diff --old-group-format=$'%df-%dl Removed:\n\e[0;31m%<\e[0m' --new-
 alias lst="ls -alh --time-style=long-iso"
 alias gen_reqs='pip3 freeze | egrep -iv "backcall|jedi|ipython|decorator|traitlets|prompt-toolkit|pygments|pickleshare|colorama|parso" | sed "s/==/>=/" | dos2unix'
 alias traceroute=tracert
+alias activate=". venv/Scripts/activate"
 
 which () {
     (alias; declare -f) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@
