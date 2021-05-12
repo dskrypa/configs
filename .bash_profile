@@ -1,8 +1,8 @@
 bashrc_user="dougs"
 
 alias rgrep="grep -nriI"
-alias grepg="egrep -nria --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude=*.pyd --exclude=*.obj --exclude-dir=venv --exclude-dir=__pycache__ --exclude-dir=docs --exclude=*.pickle --exclude=*.doctree --exclude=*.xz --exclude=*.zip --exclude=*.7z --exclude=*.gz --exclude=*.rar --exclude=*.dll"
-alias grepgc="egrep -nra --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude=*.pyd --exclude=*.obj --exclude-dir=venv --exclude-dir=__pycache__"
+alias grepg="egrep -nria --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude=*.pyd --exclude=*.obj --exclude-dir=venv --exclude-dir=venv_3.8 --exclude-dir=__pycache__ --exclude-dir=docs --exclude=*.pickle --exclude=*.doctree --exclude=*.xz --exclude=*.zip --exclude=*.7z --exclude=*.gz --exclude=*.rar --exclude=*.dll"
+alias grepgc="egrep -nra --exclude-dir=.git --exclude-dir=.idea --exclude=*.pyc --exclude=*.pyd --exclude=*.obj --exclude-dir=venv --exclude-dir=venv_3.8 --exclude-dir=__pycache__"
 
 alias cdiff="diff --old-group-format=$'%df-%dl Removed:\n\e[0;31m%<\e[0m' --new-group-format=$'%df-%dl Added:\n\e[0;32m%>\e[0m' --unchanged-group-format= -ts"
 alias lst="ls -alh --time-style=long-iso"
@@ -15,6 +15,7 @@ alias gd="git diff"
 
 alias activate=". venv/Scripts/activate"
 alias update_pip="python -m pip install --upgrade pip"
+alias prep_venv="python -m pip install --upgrade pip && pip install wheel && pip install setuptools -U"
 alias update_dbcache="pip install git+git://github.com/dskrypa/db_cache"
 alias update_dstools="pip install git+git://github.com/dskrypa/ds_tools"
 alias update_reqclient="pip install git+git://github.com/dskrypa/requests_client"
@@ -71,7 +72,7 @@ shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s no_empty_cmd_completion
 
-export PATH=$PATH:~/bin:~/sbin/ffmpeg/bin:~/sbin/ffmpeg/lib
+export PATH=$PATH:~/bin:~/sbin/ffmpeg/bin:~/sbin/ffmpeg/lib:~/sbin
 #export PATH=$PATH:~/bin:C:\\Users\\dougs\\sbin\\ffmpeg:C:\\Users\\dougs\\sbin\\ffmpeg\\bin:C:\\Users\\dougs\\sbin\\ffmpeg\\lib:C:\\Users\\dougs\\sbin\\ffmpeg\\include
 export PYTHONIOENCODING=utf-8
 
