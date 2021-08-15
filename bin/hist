@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+# Note: /bin/bash on mint and FreeBSD; /usr/local/bin/bash inside BSD jails
+
+cat ~/.bash_history ~/.history/* | grep "$@" | sort -u
