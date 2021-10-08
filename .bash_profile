@@ -38,7 +38,7 @@ alias activate=". venv/Scripts/activate"  # Windows
 # alias activate=". venv/bin/activate"  # Linux
 alias update_pip="python -m pip install --upgrade pip"
 alias prep_venv="python -m pip install --upgrade pip && pip install wheel && pip install setuptools -U"
-alias pip_update_all="pip install `pip freeze | grep -v '@' | awk -F= '{print $1}'` -U"
+alias pip_update_all='pip install $(pip freeze | grep -v "@" | awk -F= "{print $1}") -U'
 
 alias update_dbcache="pip install git+git://github.com/dskrypa/db_cache"
 alias update_dstools="pip install git+git://github.com/dskrypa/ds_tools"
