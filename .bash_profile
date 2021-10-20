@@ -63,8 +63,9 @@ alias traceroute=tracert  # tracert is the Windows equivalent
 
 
 # Functions
-function set_title() { printf "\033]0;%s\a" $1; }
+function set_title() { printf "\033]0;%s\a" "$@"; }
 function set_cmd_title() { cmd=( $BASH_COMMAND ); echo -ne "\033]0;${cmd[0]}\a"; }
+function set_pwd_title() { if [[ "$PWD" == ~ ]]; then set_title "bash: ~"; else set_title "bash: $(basename $PWD)"; fi; }
 
 
 # History
@@ -105,6 +106,7 @@ shopt -s checkwinsize
 shopt -s cmdhist
 shopt -s no_empty_cmd_completion
 # trap 'set_cmd_title' DEBUG
+trap 'set_pwd_title' DEBUG
 
 #Set this last, as afterwards, everything else goes into history - it should be the LAST entry in .bashrc
 set -o history
