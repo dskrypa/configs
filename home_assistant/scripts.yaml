@@ -1,0 +1,30 @@
+sunrise_simulation:
+  sequence:
+  - condition: state
+    entity_id: light.main_bedroom_main_lights
+    state: 'off'
+  - service: light.turn_on
+    target:
+      entity_id: light.main_bedroom_main_lights
+    data:
+      brightness_step_pct: 10
+  - delay:
+      seconds: 60
+  - repeat:
+      while:
+      - condition: numeric_state
+        entity_id: light.main_bedroom_main_lights
+        attribute: brightness
+        above: '0'
+        below: '255'
+      sequence:
+      - service: light.turn_on
+        target:
+          entity_id: light.main_bedroom_main_lights
+        data:
+          brightness_step_pct: 2.5
+      - delay:
+          seconds: 60
+  mode: single
+  icon: mdi:weather-sunset
+  alias: Sunrise Simulation

@@ -1,0 +1,86 @@
+{
+    "version": 1,
+    "key": "lovelace",
+    "data": {
+        "config": {
+            "views": [
+                {
+                    "title": "Home",
+                    "type": "sidebar",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "light",
+                            "entity": "light.main_bedroom_main_lights",
+                            "name": "Bedroom Lights",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "weather-forecast",
+                            "entity": "weather.home"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "light.main_bedroom_main_lights",
+                                    "name": "Bedroom Lights"
+                                },
+                                {
+                                    "entity": "script.sunrise_simulation"
+                                },
+                                {
+                                    "entity": "automation.start_sunrise_simulation"
+                                },
+                                {
+                                    "entity": "sun.sun"
+                                },
+                                {
+                                    "entity": "weather.home",
+                                    "name": "Weather"
+                                }
+                            ],
+                            "hours_to_show": 36,
+                            "refresh_interval": 0
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "entity": "script.sunrise_simulation",
+                            "show_state": true,
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.updater"
+                                }
+                            ],
+                            "state_color": true,
+                            "show_name": false,
+                            "title": "Home Assistant",
+                            "view_layout": {
+                                "position": "sidebar"
+                            }
+                        },
+                        {
+                            "type": "logbook",
+                            "entities": [
+                                "light.main_bedroom_main_lights",
+                                "script.sunrise_simulation"
+                            ],
+                            "hours_to_show": 36
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
