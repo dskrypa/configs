@@ -57,6 +57,10 @@ alias gen_reqs_no_acoustid='pip3 freeze | egrep -iv "backcall|jedi|ipython|decor
 alias luai="lua51 -i ~/bin/init_env.lua"
 alias dumpbin="/c/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/VC/Tools/MSVC/14.26.28801/bin/Hostx64/x64/dumpbin.exe"
 
+# Misc Tools
+alias y2j="~/git/ds_tools/bin/yaml2json.py"
+# pc = pretty+compact; underscore: npm install -g underscore-cli; while/read is necessary for separate objs from jq
+alias jsonpc='while read event; do underscore --wrapwidth $(tput cols) --outfmt json print <<< "$event"; done'
 
 # Windows-specific
 alias traceroute=tracert  # tracert is the Windows equivalent
