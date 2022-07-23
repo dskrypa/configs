@@ -27,8 +27,7 @@ try:
     # from rich import get_console
     from rich.console import Console
     from rich.highlighter import NullHighlighter
-    # from rich.pretty import pprint, pretty_repr, Pretty
-    from rich.pretty import Pretty
+    from rich.pretty import Pretty  # , pprint, pretty_repr
 except ImportError:
     c.PlainTextFormatter.pprint = False
 else:
